@@ -9,8 +9,12 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
-        // 加入這行強制指定 react-is 的路徑
-        'react-is': path.resolve(__dirname, './node_modules/react-is'),
+      },
+    },
+    build: {
+      // 終極解法：強制告訴打包工具忽略 react-is，不要再因為它報錯
+      rollupOptions: {
+        external: ['react-is'],
       },
     },
     server: {
