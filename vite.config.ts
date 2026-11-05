@@ -9,6 +9,8 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
+        // 加入這行強制指定 react-is 的路徑
+        'react-is': path.resolve(__dirname, './node_modules/react-is'),
       },
     },
     server: {
